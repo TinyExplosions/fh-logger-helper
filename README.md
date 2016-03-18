@@ -10,9 +10,10 @@ Valid log levels are: 'error', 'warn', 'info', 'silly'
 
 Use `require('fh-logger-helper')` to use this module.  The following methods are provided:
 
-## Logger.setLoggerLevel(level[, callback])
+## Logger.setLoggerLevel(level [, callback])
 
-Change the current log level and immediately apply it
+Change the current log level and immediately apply it, then fire a callback, if
+supplied.
 
 Example:
 
@@ -33,7 +34,3 @@ Example:
 ```js
 Logger.killLoggingForTests();
 ```
-
-A simple request timer middleware for express apps that logs request time to the
-Red Hat Mobile Application Platform, as well as adding an optional `x-fh-timer` header to
-each response.

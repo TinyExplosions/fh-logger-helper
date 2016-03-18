@@ -1,6 +1,6 @@
 {
   "name": "fh-logger-helper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Some sensible defaults around the Winston logger to easily manage logging in an application",
   "main": "index.js",
   "repository": {
