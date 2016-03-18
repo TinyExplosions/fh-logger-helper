@@ -1,0 +1,24 @@
+{
+  "name": "fh-logger-helper",
+  "version": "1.0.0",
+  "description": "Some sensible defaults around the Winston logger to easily manage logging in an application",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TinyExplosions/fh-logger-helper.git"
+  },
+  "keywords": [
+    "winston",
+    "RHMAP",
+    "logging"
+  ],
+  "author": "Al Graham, Alan Moran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TinyExplosions/fh-logger-helper/issues"
+  },
+  "homepage": "https://github.com/TinyExplosions/fh-logger-helper#readme",
+  "dependencies": {
+    "winston": "~2.2.0"
+  }
+}
