@@ -9,13 +9,12 @@ if (process.env.DEBUG_LEVEL && checkLogLevel(process.env.DEBUG_LEVEL)) {
 }
 
 // we may want to change log level on the fly, so provide a way to do that
-function setLoggerLevel(params, callback) {
+Logger.setLoggerLevel = function setLogLevel(level, callback) {
     callback = callback || function() {};
-    var logLevel = params.level;
-    if (!checkLogLevel(logLevel)) {
+    if (!checkLogLevel(level)) {
         return callback({
             status: 'not ok',
-            msg: logLevel + ' is not a valid logging level'
+            msg: level + ' is not a valid logging level'
         }, null);
     }
     Logger.remove(winston.transports.Console);
@@ -24,18 +23,18 @@ function setLoggerLevel(params, callback) {
     Logger.add(winston.transports.Console, {
         timestamp: true,
         colorize: true,
-        level: logLevel
+        level: level
     });
 
-    Logger.info('Log level now set to ::', logLevel);
+    Logger.info('Log level now set to ::', level);
     return callback(null, {
         status: 'ok',
-        msg: 'Updated Log Level: ' + logLevel
+        msg: 'Updated Log Level: ' + level
     });
 }
 
 // when running tests, we don't need the Logger, so let us be able to kill it
-function killLoggingForTests() {
+Logger.killLoggingForTests = function killLogging() {
     Logger.remove(winston.transports.Console);
 }
 
@@ -52,10 +51,4 @@ Logger.add(winston.transports.Console, {
 Logger.info('Log level:', defaultLogLevel);
 
 // export what's useful
-module.exports = {
-    getLogger: function getLogger() {
-        return Logger;
-    },
-    setLoggerLevel: setLoggerLevel,
-    killLoggingForTests: killLoggingForTests
-};
+module.exports = Logger;

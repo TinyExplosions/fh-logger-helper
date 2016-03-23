@@ -8,7 +8,28 @@ the `Logger.setLoggerLevel` method.
 
 Valid log levels are: 'error', 'warn', 'info', 'silly'
 
-Use `require('fh-logger-helper')` to use this module.  The following methods are provided:
+Use `require('fh-logger-helper')` to use this module. 
+
+Example:
+
+```js
+var Logger = require('fh-logger-helper');
+
+Logger.error("I'm an error level log");
+Logger.log("error", I'm also an error level log");
+
+Logger.warn("I'm an warn level log");
+Logger.log("warn", I'm also an warn level log");
+
+Logger.info("I'm an info level log");
+Logger.log("info", I'm also an info level log");
+
+Logger.silly("I'm an silly level log");
+Logger.log("silly", I'm also an silly level log");
+
+```
+
+The following methods are provided:
 
 ## Logger.setLoggerLevel(level [, callback])
 
