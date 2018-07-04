@@ -1,7 +1,31 @@
+var loggerSettings = {
+    levels: {
+        sys: 0,
+        error: 1,
+        warn: 2,
+        info: 3,
+        verbose: 4,
+        debug: 5,
+        silly: 6
+    },
+    colors: {
+        sys: 'cyan',
+        error: 'red',
+        warn: 'yellow',
+        info: 'green',
+        verbose: 'green',
+        debug: 'green',
+        silly: 'green'
+    }
+};
+
 // default level to `error` so we don't inadvertently flood the logs if we dont specify
 var winston = require('winston'),
     Logger = new winston.Logger(),
     defaultLogLevel = 'error';
+    
+Logger.setLevels(loggerSettings.levels);
+winston.addColors(loggerSettings.colors);
 
 // set the log level to whatever is specified in the Env Variable `DEBUG_LEVEL`
 if (process.env.DEBUG_LEVEL && checkLogLevel(process.env.DEBUG_LEVEL)) {

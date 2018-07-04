@@ -6,7 +6,7 @@ If will set the level to 'error' by default, but this can be changed
 by setting `process.env.DEBUG_LEVEL` to a valid logging level, or with
 the `Logger.setLoggerLevel` method.
 
-Valid log levels are: 'error', 'warn', 'info', 'silly'
+Valid log levels are: 'sys', 'error', 'warn', 'info', 'silly'
 
 Use `require('fh-logger-helper')` to use this module. 
 
@@ -14,6 +14,9 @@ Example:
 
 ```js
 var Logger = require('fh-logger-helper');
+
+Logger.sys("I'm an sys level log");
+Logger.log("sys", I'm also a sys level log");
 
 Logger.error("I'm an error level log");
 Logger.log("error", I'm also an error level log");
